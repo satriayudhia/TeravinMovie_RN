@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./src/assets/favicon.png"
-    }
+    },
+    "description": "Test React Native Developer - PT. Teravin Technovations",
+    "githubUrl": "https://github.com/satriayudhia/TeravinMovie_RN"
   }
 }
