@@ -72,6 +72,18 @@ const Home = (props) => {
     };
 
     useEffect(() => {
+        NetInfo.fetch().then(state => {
+            console.log('Connection type', state.type);
+            console.log('Is connected?', state.isConnected);
+            if (state.isConnected == false) {
+                setModal(true)
+            } else {
+                setVisible(true)
+            }
+        });
+    }, [])
+
+    useEffect(() => {
         getPost();
 
         const MINUTE_MS = 60000;
@@ -81,18 +93,6 @@ const Home = (props) => {
     
         return () => clearInterval(interval);
     }, [filter])
-
-    useEffect(() => {
-        NetInfo.fetch().then(state => {
-            console.log('Connection type', state.type);
-            console.log('Is connected?', state.isConnected);
-            if (state.isConnected == false) {
-
-            } else {
-                setVisible(true)
-            }
-        });
-    }, [])
 
     const renderItem = ({ item }) => {
         return (
